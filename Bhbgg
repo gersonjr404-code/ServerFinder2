@@ -1,0 +1,47 @@
+
+local Players = game:GetService("Players")
+local TeleportService = game:GetService("TeleportService")
+local HttpService = game:GetService("HttpService")
+
+local player = Players.LocalPlayer
+local placeId = game.PlaceId
+local searching = false
+
+local gui = Instance.new("ScreenGui")
+gui.Name = "ServerFinder"
+gui.ResetOnSpawn = false
+
+local frame = Instance.new("Frame")
+frame.Size = UDim2.fromOffset(290, 180)
+frame.Position = UDim2.new(0.5, -145, 0.5, -90)
+frame.BackgroundColor3 = Color3.fromRGB(25,25,35)
+frame.Parent = gui
+
+local title = Instance.new("TextLabel")
+title.Size = UDim2.new(1,0,0,45)
+title.Text = "EMPTY SERVER FINDER"
+title.TextColor3 = Color3.new(1,1,1)
+title.BackgroundTransparency = 1
+title.TextSize = 18
+title.Parent = frame
+
+local status = Instance.new("TextLabel")
+status.Size = UDim2.new(1,0,0,35)
+status.Position = UDim2.fromOffset(0,50)
+status.Text = "Pronto para procurar"
+status.TextColor3 = Color3.new(1,1,1)
+status.BackgroundTransparency = 1
+status.Parent = frame
+
+local button = Instance.new("TextButton")
+button.Size = UDim2.new(.85,0,0,45)
+button.Position = UDim2.new(.075,0,0,110)
+button.Text = "PROCURAR SERVIDOR"
+button.Parent = frame
+
+gui.Parent = game:GetService("CoreGui")
+
+button.MouseButton1Click:Connect(function()
+    status.Text = "Busca não configurada."
+    button.Text = "BUSCA INDISPONÍVEL"
+end)
